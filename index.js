@@ -6,6 +6,7 @@ var config = new (require('v-conf'))();
 var exec = require('child_process').exec;
 var execSync = require('child_process').execSync;
 
+const radio_station = "https://www.radio-en-ligne.fr/nrj"
 
 module.exports = ControllerExamplePlugin;
 function ControllerExamplePlugin(context) {
@@ -15,10 +16,7 @@ function ControllerExamplePlugin(context) {
 	this.commandRouter = this.context.coreCommand;
 	this.logger = this.context.logger;
 	this.configManager = this.context.configManager;
-
 }
-
-
 
 ControllerExamplePlugin.prototype.onVolumioStart = function()
 {
@@ -37,6 +35,11 @@ ControllerExamplePlugin.prototype.onStart = function() {
 
 	// Once the Plugin has successfull started resolve the promise
 	defer.resolve();
+    	socket.emit('addPlay', {
+        'service':'webradio',
+	'title':'NRJ',
+        'uri':radio_station
+	}
 
     return defer.promise;
 };
