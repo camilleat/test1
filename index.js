@@ -35,11 +35,11 @@ ControllerExamplePlugin.prototype.onStart = function() {
 
 	// Once the Plugin has successfull started resolve the promise
 	defer.resolve();
-    	socket.emit('addPlay', {
-        'service':'webradio',
-	'title':'NRJ',
-        'uri':radio_station
-	}
+    	//socket.emit('addPlay', {
+        //'service':'webradio',
+	//'title':'NRJ',
+        //'uri':radio_station
+	//}
 
     return defer.promise;
 };
