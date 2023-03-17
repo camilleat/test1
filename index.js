@@ -29,17 +29,22 @@ ControllerExamplePlugin.prototype.onVolumioStart = function()
 }
 
 ControllerExamplePlugin.prototype.onStart = function() {
-    var self = this;
+	var self = this;
 	var defer=libQ.defer();
 
-
-	// Once the Plugin has successfull started resolve the promise
-	defer.resolve();
-    	//socket.emit('addPlay', {
-        //'service':'webradio',
-	//'title':'NRJ',
-        //'uri':radio_station
-	//}
+	self.commandRouter
+		.volumioPlay({
+			service: 'webradio',
+			type: 'webradio',
+			title: 'NRJ',
+			uri: radio_station
+		})
+		.then(function() {
+			defer.resolve();
+		})
+		.fail(function(e) {
+			defer.reject(new Error());
+		});
 
     return defer.promise;
 };
