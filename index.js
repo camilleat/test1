@@ -43,6 +43,8 @@ ControllerExamplePlugin.prototype.onStart = function() {
     			'uri': 'http://nova-ln.ice.infomaniak.ch/nova-ln-128',
     			'albumart': 'https://www.nova.fr/sites/default/files/2020-06/Nova%20la%20Nuit_1.jpg'
   		})
+	}).then(_=> {
+		defer.resolve();
 	});
 	//self.commandRouter
 	//	.volumioPlay({
@@ -57,7 +59,6 @@ ControllerExamplePlugin.prototype.onStart = function() {
 	//	.fail(function(e) {
 	//		defer.reject(new Error());
 	//	});
-	defer.resolve();
 	return defer.promise;
 };
 
