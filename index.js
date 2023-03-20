@@ -6,7 +6,7 @@ var config = new (require('v-conf'))();
 var exec = require('child_process').exec;
 var execSync = require('child_process').execSync;
 
-const radio_station = "https://www.radio-en-ligne.fr/nrj"
+//const radio_station = "https://www.radio-en-ligne.fr/nrj"
 
 module.exports = ControllerExamplePlugin;
 function ControllerExamplePlugin(context) {
