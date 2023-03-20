@@ -57,8 +57,8 @@ ControllerExamplePlugin.prototype.onStart = function() {
 	//	.fail(function(e) {
 	//		defer.reject(new Error());
 	//	});
-
-    return defer.promise;
+	defer.resolve();
+	return defer.promise;
 };
 
 ControllerExamplePlugin.prototype.onStop = function() {
