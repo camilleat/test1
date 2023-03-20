@@ -31,20 +31,32 @@ ControllerExamplePlugin.prototype.onVolumioStart = function()
 ControllerExamplePlugin.prototype.onStart = function() {
 	var self = this;
 	var defer=libQ.defer();
-
-	self.commandRouter
-		.volumioPlay({
-			service: 'webradio',
-			type: 'webradio',
-			title: 'NRJ',
-			uri: radio_station
-		})
-		.then(function() {
-			defer.resolve();
-		})
-		.fail(function(e) {
-			defer.reject(new Error());
-		});
+	fetch('http://localhost:3000/api/v1/replaceAndPlay', {
+  		method: 'POST',
+  		headers: {
+    			'Content-Type': 'application/json'
+  			},
+  		body: JSON.stringify({
+    			'service': 'webradio',
+    			'type': 'webradio',
+    			'title': 'Nova%20La%20Nuit',
+    			'uri': 'http://nova-ln.ice.infomaniak.ch/nova-ln-128',
+    			'albumart': 'https://www.nova.fr/sites/default/files/2020-06/Nova%20la%20Nuit_1.jpg'
+  		})
+	});
+	//self.commandRouter
+	//	.volumioPlay({
+	//		service: 'webradio',
+	//		type: 'webradio',
+	//		title: 'NRJ',
+	//		uri: radio_station
+	//	})
+	//	.then(function() {
+	//		defer.resolve();
+	//	})
+	//	.fail(function(e) {
+	//		defer.reject(new Error());
+	//	});
 
     return defer.promise;
 };
