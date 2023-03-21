@@ -38,12 +38,12 @@ ControllerExamplePlugin.prototype.onStart = function() {
     			'Content-Type': 'application/x-www-form-urlencoded'
   		},
   		body: 'service=webradio&type=webradio&title=Nova%20La%20Nuit&uri=http://nova-ln.ice.infomaniak.ch/nova-ln-128&albumart=https://www.nova.fr/sites/default/files/2020-06/Nova%20la%20Nuit_1.jpg'
-		});
+		})
     	.then(function(response) {
-        	defer.resolve();
+        	defer.resolve(response);
     	})
     	.catch(function(error) {
-        	defer.reject(new Error());
+        	defer.reject(error);
    	});
    	return defer.promise;
 };
