@@ -1,7 +1,7 @@
 'use strict';
 
 var libQ = require('kew');
-var fetch = require('node-fetch');
+//var fetch = require('node-fetch');
 var fs=require('fs-extra');
 var config = new (require('v-conf'))();
 var exec = require('child_process').exec;
@@ -32,20 +32,20 @@ ControllerExamplePlugin.prototype.onStart = function() {
 	var self = this;
     	var defer = libQ.defer();
     
-    	fetch('http://localhost:3000/api/v1/replaceAndPlay', {
-  		method: 'POST',
- 		headers: {
-    			'Content-Type': 'application/x-www-form-urlencoded'
-  		},
-  		body: 'service=webradio&type=webradio&title=Nova%20La%20Nuit&uri=http://nova-ln.ice.infomaniak.ch/nova-ln-128&albumart=https://www.nova.fr/sites/default/files/2020-06/Nova%20la%20Nuit_1.jpg'
-		})
-    	.then(function(response) {
-        	defer.resolve(response);
-    	})
-    	.catch(function(error) {
-        	defer.reject(error);
-   	});
-   	return defer.promise;
+    //	fetch('http://localhost:3000/api/v1/replaceAndPlay', {
+  //		method: 'POST',
+ 	//	headers: {
+    	//		'Content-Type': 'application/x-www-form-urlencoded'
+  	//	},
+  	//	body: 'service=webradio&type=webradio&title=Nova%20La%20Nuit&uri=http://nova-ln.ice.infomaniak.ch/nova-ln-128&albumart=https://www.nova.fr/sites/default/files/2020-06/Nova%20la%20Nuit_1.jpg'
+	//	})
+    	//.then(function(response) {
+       // 	defer.resolve(response);
+    	//})
+    	//.catch(function(error) {
+        //	defer.reject(error);
+   	//});
+   	//return defer.promise;
 };
 
 ControllerExamplePlugin.prototype.onStop = function() {
